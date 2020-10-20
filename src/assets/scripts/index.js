@@ -5,7 +5,7 @@ import { getData } from './getData';
 (async () => {
 
   const data = await getData();
-  //console.log(data)
+  console.log(data)
   
   if((window.location.pathname == '/') || (window.location.pathname == '/index.html')){
     buildHome(data);

@@ -1,22 +1,31 @@
 import { TOPICS, SUGAR } from './constants';
 import { requestTopic } from './api';
 
+function removeHTTPExternalResources(data){
+  const filteredData = {};
+  for(const [k,v] of Object.entries(data)){
+    data[k] = v.filter( book => (/^(http:)/).test(book.cover));
+    sessionStorage.setItem(`${SUGAR}${k}`,JSON.stringify(data[k]));
+  }
+  return data;
+}
+
 export async function getData(){
 
   // const data = {};
 
   // for(const topic in TOPICS){
-  //     let books = JSON.parse(localStorage.getItem(`${sugar}${topic}`));
+  //     let books = JSON.parse(localStorage.getItem(`${SUGAR}${topic}`));
   //     if(!books) {
   //         books = await requestTopic(TOPICS[topic]);
-  //         localStorage.setItem(`${sugar}${topic}`,JSON.stringify(books));
+  //         localStorage.setItem(`${SUGAR}${topic}`,JSON.stringify(books));
   //     }
   //     data[topic] = books;
   // }
 
   // return data;
 
-  const data = {};
+  let data = {};
   const requests = {
     topics: [],
     functions:[]
@@ -36,10 +45,12 @@ export async function getData(){
   await Promise.all(requests.functions).then( responses => 
     Promise.all(responses).then( response => {
       for(let i in response){
-        sessionStorage.setItem(`${SUGAR}${requests.topics[i]}`,JSON.stringify(response[i]));
         data[requests.topics[i]] = response[i];
       }
-    }));
+    })
+  );
+
+  data = removeHTTPExternalResources(data);
 
   return data;
 
