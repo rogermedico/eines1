@@ -1,15 +1,6 @@
 import { TOPICS, SUGAR } from './constants';
 import { requestTopic } from './api';
 
-// function removeHTTPExternalResources(data){
-//   const filteredData = {};
-//   for(const [k,v] of Object.entries(data)){
-//     data[k] = v.filter( book => (/^(https:)/).test(book.cover));
-//     sessionStorage.setItem(`${SUGAR}${k}`,JSON.stringify(data[k]));
-//   }
-//   return data;
-// }
-
 export async function getData(){
 
   // const data = {};
@@ -45,12 +36,11 @@ export async function getData(){
   await Promise.all(requests.functions).then( responses => 
     Promise.all(responses).then( response => {
       for(let i in response){
+        sessionStorage.setItem(`${SUGAR}${requests.topics[i]}`,JSON.stringify(response[i]));
         data[requests.topics[i]] = response[i];
       }
     })
   );
-
-  // data = removeHTTPExternalResources(data);
 
   return data;
 
