@@ -1,14 +1,14 @@
 import { TOPICS, SUGAR } from './constants';
 import { requestTopic } from './api';
 
-function removeHTTPExternalResources(data){
-  const filteredData = {};
-  for(const [k,v] of Object.entries(data)){
-    data[k] = v.filter( book => (/^(https:)/).test(book.cover));
-    sessionStorage.setItem(`${SUGAR}${k}`,JSON.stringify(data[k]));
-  }
-  return data;
-}
+// function removeHTTPExternalResources(data){
+//   const filteredData = {};
+//   for(const [k,v] of Object.entries(data)){
+//     data[k] = v.filter( book => (/^(https:)/).test(book.cover));
+//     sessionStorage.setItem(`${SUGAR}${k}`,JSON.stringify(data[k]));
+//   }
+//   return data;
+// }
 
 export async function getData(){
 
@@ -50,7 +50,7 @@ export async function getData(){
     })
   );
 
-  data = removeHTTPExternalResources(data);
+  // data = removeHTTPExternalResources(data);
 
   return data;
 
