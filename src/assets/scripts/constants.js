@@ -7,7 +7,7 @@ export const TOPICS = {
     HTML: 'html,html5,mvc,w3c',
     CSS: 'css3,css,css-2,CSSDoc,estilos,maquetacion,bootstrap,canvas,responsive,estilos,guia-de-estilo,presentacion,comunicacion,diseno-2',
     JavaScript: 'javascript,jquery,dom,typescript,json-2,ajax,ecmascript',
-    Backend: '.net,asp,php,mysql,node-js,mongodb,lamp,ruby-on-rails,postgreesql,asp,wamp,xamp,bases-de-datos,hosting,net,python,node,sql,unix,php-2,java,apache,nosql',
+    Backend: '.net,asp,php,mysql,node-js,mongodb,ruby-on-rails,postgreesql,asp,bases-de-datos,hosting,net,python,node,sql,unix,php-2,java,apache,nosql',
     Frameworks: 'framework,angular,codeigniter,react,react-js,react-native,mvc,rxjs,vue,laravel'
 }
 export const ENDPOINT = {

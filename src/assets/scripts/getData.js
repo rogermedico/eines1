@@ -9,7 +9,7 @@ function patchCoverHTTPCalls(data){
       } 
     })
   })
-  return (data);
+  return data;
 }
 
 export async function getData(){
@@ -53,6 +53,8 @@ export async function getData(){
     })
   );
 
-  return patchCoverHTTPCalls(data);
+  data = patchCoverHTTPCalls(data);
+
+  return data;
 
 }
