@@ -12,6 +12,14 @@ function patchCoverHTTPCalls(data){
   return data;
 }
 
+function removeCoverHTTPCalls(data){
+  Object.entries(data).forEach( ([k,topic]) => {
+    data[k] = topic.filter( book => (/^https:/).test(book.cover));
+  })
+
+  return data;
+}
+
 export async function getData(){
 
   // const data = {};
@@ -53,7 +61,9 @@ export async function getData(){
     })
   );
 
-  data = patchCoverHTTPCalls(data);
+console.log(removeCoverHTTPCalls(data));
+
+  // data = patchCoverHTTPCalls(data);
 
   return data;
 
