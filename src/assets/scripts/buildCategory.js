@@ -1,5 +1,5 @@
-import { TOPICS, N_ELEMENTS_PAGE, CATEGORY_PAGE_NAME } from './constants';
-import { BOOK_PAGE_NAME } from './constants';
+import { TOPICS, N_ELEMENTS_PAGE, CATEGORY_PAGE_NAME, BOOK_PAGE_NAME } from './constants';
+import { buildFooter } from './buildFooter';
 import { searchToJSON } from './url';
 
 export function buildCategory(data){
@@ -12,8 +12,15 @@ export function buildCategory(data){
     window.location.href = '/';
   }
   else{
+
+    /* build pagination */
     const actualPage = pagination(data,search);
+
+    /* build content section (books) */
     content(data,search,actualPage);
+    
+    /* build footer links */
+		buildFooter(data);
   }
 
 }

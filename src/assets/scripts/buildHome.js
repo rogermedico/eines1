@@ -1,3 +1,4 @@
+import { buildFooter } from './buildFooter';
 import { HOME_BOOKS_NUMBER, CATEGORY_PAGE_NAME, BOOK_PAGE_NAME } from './constants';
 
 export function buildHome(data){
@@ -57,15 +58,10 @@ export function buildHome(data){
 
 		}
 
-		/* footer links */
-		const footerLinkContainer = document.querySelector('#footer-links');
-		const footerLinkDiv = document.createElement('div');
-		footerLinkDiv.classList.add('footer-link-container');
-		footerLinkContainer.appendChild(footerLinkDiv);
-		const footerLink = titleLink.cloneNode(true);
-		footerLinkDiv.appendChild(footerLink);
-
 	}
+
+		/* build footer links */
+		buildFooter(data);
 
 		/* remove loader */
 		document.querySelector('#loader').remove();
