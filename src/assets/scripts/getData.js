@@ -1,6 +1,17 @@
 import { TOPICS, SUGAR } from './constants';
 import { requestTopic } from './api';
 
+function patchCoverHTTPCalls(data){
+  Object.values(data).forEach( topic => {
+    topic.forEach( book => {
+      if((/^http:/).test(book.cover)){
+        book.cover = book.cover.replace(/^http:\/\//i, 'https://');
+      } 
+    })
+  })
+  return (data);
+}
+
 export async function getData(){
 
   // const data = {};
@@ -42,6 +53,6 @@ export async function getData(){
     })
   );
 
-  return data;
+  return patchCoverHTTPCalls(data);
 
 }
