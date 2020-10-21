@@ -19,3 +19,4 @@ export const LOCATIONS = {
     category: ['/category.html'],
     book: ['/book.html']
 }
+export const N_ELEMENTS_PAGE = 12;

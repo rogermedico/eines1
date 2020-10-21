@@ -61,8 +61,8 @@ export async function getData(){
     })
   );
 
-console.log(removeCoverHTTPCalls(data));
 
+  data = removeCoverHTTPCalls(data);
   // data = patchCoverHTTPCalls(data);
 
   return data;
