@@ -1,20 +1,22 @@
-import { TOPICS } from './constants';
-import { buildHome } from './buildHome';
 import { getData } from './getData';
+import { buildHome } from './buildHome';
+import { buildCategory } from './buildCategory';
+import { buildBook } from './buildBook';
+import { iAmInBook, iAmInCategory, iAmInHome } from './url';
 
 (async () => {
 
   const data = await getData();
   console.log(data)
   
-  if((window.location.pathname == '/') || (window.location.pathname == '/index.html')){
+  if(iAmInHome()){
     buildHome(data);
   }
-  else if((window.location.pathname == '/category.html') && ( Object.keys(TOPICS).includes(window.location.search.substring(1)))){
-    console.log('category')
+  else if(iAmInCategory()){
+    buildCategory(data);
   }
-  else if(window.location.pathname == '/book.html'){
-    console.log('book')
+  else if(iAmInBook()){
+    buildBook(data);
   }
 
 })();

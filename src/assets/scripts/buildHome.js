@@ -14,18 +14,19 @@ export function buildHome(data){
 
 		/* Section title */
 		const h3 = document.createElement('h3');
+		h3.classList.add('subtitle-2');
 		sectionContainer.appendChild(h3);
 
 		/* Title link */
 		const titleLink = document.createElement('a');
 		titleLink.textContent = topic;
 		titleLink.classList.add('link');
-		titleLink.setAttribute('href', `${CATEGORY_PAGE_NAME}?${topic.toLowerCase()}`);
+		titleLink.setAttribute('href', `${CATEGORY_PAGE_NAME}?t=${topic}`);
 		h3.appendChild(titleLink);
 
 		/* Books container */
 		const booksSection = document.createElement('div');
-		booksSection.classList.add('books-section');
+		booksSection.classList.add('home-books-section');
 		sectionContainer.appendChild(booksSection);
 		
 		for(const book in books){
@@ -33,7 +34,7 @@ export function buildHome(data){
 			/* figure link */
 			const figureLink = document.createElement('a');
 			figureLink.classList.add('figure-link',`home-figure-${book}`);
-			figureLink.setAttribute('href', `${BOOK_PAGE_NAME}?${books[book].ID}`);
+			figureLink.setAttribute('href', `${BOOK_PAGE_NAME}?id=${books[book].ID}`);
 			booksSection.appendChild(figureLink);
 
 			/* figure */

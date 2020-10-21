@@ -5,6 +5,7 @@
   --background-color-secondary: rgba(51, 100, 138, 0.1);
   --text-color: #232323;
   --text-color-secondary: #747474;
+  --text-color-inverse: #fff;
   --color: #2f4858;
   --color-2: #33658a;
   --color-3: #f6ae2d;
@@ -117,12 +118,12 @@ main {
   padding-bottom: 3rem;
 }
 
-h2 {
+.subtitle {
   font-family: var(--font-serif);
   color: var(--color);
 }
 
-h3 {
+.subtitle-2 {
   font-size: 1.6rem;
   font-family: var(--font-serif);
   color: var(--color);
@@ -148,14 +149,14 @@ h3 {
   margin-top: 2rem;
 }
 
-.books-section {
+.home-books-section {
   display: flex;
   justify-content: space-around;
   margin-bottom: 15px;
 }
 
-.home-figure {
-  /* flex: 1 1 0px; */
+.home-figure,
+.category-figure {
   margin: 1rem;
   text-align: center;
   background-color: var(--background-color);
@@ -180,18 +181,21 @@ h3 {
   }
 }
 
-.home-figure:hover {
+.home-figure:hover,
+.category-figure:hover {
   box-shadow: 0 4px 8px 0 var(--color-4), 0 6px 20px 0 var(--color-4);
 }
 
-.home-figure-img {
+.home-figure-img,
+.category-figure-img {
   width: 100%;
   max-width: 260px;
   height: auto;
   max-height: 350px;
 }
 
-.home-figure-figcaption {
+.home-figure-figcaption,
+.category-figure-figcaption {
   max-width: 260px;
   text-align: center;
   padding: 10px 20px;
@@ -276,5 +280,53 @@ footer {
     display: block;
     font-size: 1rem;
     margin-bottom: 0.5rem;
+  }
+}
+
+.tags {
+  margin-top: 1rem;
+}
+
+.tag-link {
+  display: inline-block;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.3rem;
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: var(--text-color-inverse);
+  background-color: var(--color-3);
+  text-decoration: none;
+}
+
+.category-books-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.category-figure-link {
+  flex: 0 0 260px;
+}
+
+@media (min-width: 576px) {
+  .category-books-section {
+    justify-content: initial;
+  }
+  .category-figure-link {
+    flex: 0 0 50%;
+  }
+}
+
+@media (min-width: 768px) {
+  .category-figure-link {
+    flex: 0 0 33%;
+  }
+}
+
+@media (min-width: 992px) {
+  .category-figure-link {
+    flex: 0 0 25%;
   }
 }
