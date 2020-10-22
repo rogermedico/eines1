@@ -101,7 +101,7 @@ function pagination(data,search){
   if(search.p && Number.isInteger(search.p) && (search.p > 0) && (search.p <= nPages)) actualPage = search.p;
   
   /* make pagination section */
-  const content = document.querySelector('#content');
+  const content = document.querySelector('#category-content');
   const pagSection = document.createElement('div');
   pagSection.classList.add('category--content--pagination');
   content.appendChild(pagSection);
