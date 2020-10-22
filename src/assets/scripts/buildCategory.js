@@ -46,7 +46,6 @@ function content(data,search,actualPage){
   const content = document.querySelector('#content');
   const booksSection = document.createElement('div');
   booksSection.classList.add('category-books-section');
-  //content.appendChild(booksSection);
   content.insertBefore(booksSection,content.childNodes[0]);
 
   /* add books to books section acording to actual page*/
@@ -88,8 +87,13 @@ function content(data,search,actualPage){
 
 function pagination(data,search){
 
+  /* number of pages acording to number of books in topic and number of elements per page defined in constants */
   const nPages = Math.trunc(data[search.t].length/N_ELEMENTS_PAGE)+1;
+
+  /* if only one page pagination is not needed */
   if(nPages == 1) return;
+
+  /* determine the page to show */
   let actualPage = 1;
   search.p = parseInt(search.p);
   if(search.p && Number.isInteger(search.p) && (search.p > 0) && (search.p <= nPages)) actualPage = search.p;

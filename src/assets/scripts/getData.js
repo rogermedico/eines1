@@ -1,6 +1,7 @@
 import { TOPICS, SUGAR } from './constants';
 import { requestTopic } from './api';
 
+/* Transform all HTTP cover calls to HTTPS */
 function patchCoverHTTPCalls(data){
   Object.values(data).forEach( topic => {
     topic.forEach( book => {
@@ -12,6 +13,7 @@ function patchCoverHTTPCalls(data){
   return data;
 }
 
+/* Remove all books with HTTP cover calls */
 function removeCoverHTTPCalls(data){
   Object.entries(data).forEach( ([k,topic]) => {
     data[k] = topic.filter( book => (/^https:/).test(book.cover));
@@ -20,20 +22,8 @@ function removeCoverHTTPCalls(data){
   return data;
 }
 
+/* get data and retunr it as a object */
 export async function getData(){
-
-  // const data = {};
-
-  // for(const topic in TOPICS){
-  //     let books = JSON.parse(localStorage.getItem(`${SUGAR}${topic}`));
-  //     if(!books) {
-  //         books = await requestTopic(TOPICS[topic]);
-  //         localStorage.setItem(`${SUGAR}${topic}`,JSON.stringify(books));
-  //     }
-  //     data[topic] = books;
-  // }
-
-  // return data;
 
   let data = {};
   const requests = {
@@ -41,27 +31,39 @@ export async function getData(){
     functions:[]
   } 
 
+  /* for each topic get info related to it from session storage or make a call to endpoint */
   for (const topic in TOPICS){
     let books = JSON.parse(sessionStorage.getItem(`${SUGAR}${topic}`));
+    
+    /* If info found in sessionstorage populate data object */
     if(books) {
       data[topic] = books;
     }
+    /* If info not found store call to endpoint */
     else{
       requests.topics.push(topic);
       requests.functions.push(requestTopic(TOPICS[topic]));  
     }
   }
 
+  /* make calls to endpoint from each missing topic concurrently */
   await Promise.all(requests.functions).then( responses => 
-    Promise.all(responses).then( response => {
-      for(let i in response){
-        sessionStorage.setItem(`${SUGAR}${requests.topics[i]}`,JSON.stringify(response[i]));
-        data[requests.topics[i]] = response[i];
-      }
-    })
+    Promise.all(responses)
+      .then( response => {
+        for(let i in response){
+          if(response[i]){
+          sessionStorage.setItem(`${SUGAR}${requests.topics[i]}`,JSON.stringify(response[i]));
+          data[requests.topics[i]] = response[i];
+          }
+          else {
+            console.log('Fetch failed');
+            break;
+          }
+        }
+      })
   );
 
-
+  /* remove http cover calls to avoid conflicts with netlify */
   data = removeCoverHTTPCalls(data);
   // data = patchCoverHTTPCalls(data);
 
