@@ -6,7 +6,7 @@ export function buildFooter(data){
         /* footer links container */
         const footerLinkContainer = document.querySelector('#footer-links');
         const footerLinkDiv = document.createElement('div');
-        footerLinkDiv.classList.add('footer-link-container');
+        footerLinkDiv.classList.add('footer--right--link-container');
         footerLinkContainer.appendChild(footerLinkDiv);
 
         /* footer link */

@@ -61,7 +61,7 @@ body {
   }
 }
 
-/* Container with diferent sizes depending on screen size */
+/* Container wich content will be, it has diferent sizes depending on screen size */
 .container {
   margin-left:auto;
   margin-right: auto;
@@ -92,81 +92,6 @@ body {
   }
 }
 
-/* header */
-header {
-  display: flex;
-  padding-top: 2.5rem;
-  padding-bottom: 5rem;
-  align-items: center;
-}
-
-/* logo */
-.logo {
-  width: auto;
-  margin-right: 15px;
-  font-size: 2.3rem ;
-}
-
-/* title text*/
-.title {
-  font-size: 2.3rem ;
-  font-family: var(--font-serif);
-  font-weight: 400;
-  color: var(--color-3);
-}
-
-.title-text {
-  display: none;
-}
-
-@media (min-width: 768px) {
-  .title-text {
-    display: initial;
-  }
-  .title-initials {
-    display: none;
-  }
-}
-
-/* Top menu */
-.top-menu-container {
-  margin-left: auto;
-}
-
-.top-menu-icon {
-  font-size: 2.1rem;
-}
-
-.menu-link {
-  color: var(--color-3);
-  text-decoration: none;
-}
-
-.menu-link:hover {
-  color: var(--color-4);
-  text-decoration: none;
-}
-
-/*
- * Main content
- */
-
-main {
-  padding-bottom: 3rem;
-}
-
-.subtitle {
-  font-family: var(--font-serif);
-  color: var(--color);
-}
-
-.subtitle-2 {
-  font-size: 2rem;
-  font-family: var(--font-serif);
-  color: var(--color);
-  border-bottom: 1px solid var(--color);
-}
-
 /* link, reused in many places */
 .link {
   color: var(--color);
@@ -178,22 +103,130 @@ main {
   text-decoration: underline;
 }
 
+/* loader */
 .loader {
   text-align: center;
   margin-top: 3rem;
 }
 
-.content {
+/*
+ * header 
+ */
+.header {
+  display: flex;
+  padding-top: 2.5rem;
+  padding-bottom: 5rem;
+  align-items: center;
+}
+
+/* logo */
+.header--logo {
+  width: auto;
+  margin-right: 15px;
+  font-size: 2.3rem ;
+}
+
+/* title text*/
+.header--title {
+  font-size: 2.3rem ;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  color: var(--color-3);
+}
+
+.header--title--text {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .header--title--text {
+    display: initial;
+  }
+  .header--title--initials {
+    display: none;
+  }
+}
+
+/* Top menu */
+.header--menu {
+  margin-left: auto;
+}
+
+.header--menu--icon {
+  font-size: 2.1rem;
+}
+
+.header--link {
+  color: var(--color-3);
+  text-decoration: none;
+}
+
+.header--link:hover {
+  color: var(--color-4);
+  text-decoration: none;
+}
+
+/*
+ * Main content
+ */
+
+.home--main {
+  padding-bottom: 3rem;
+}
+
+.home--main--subtitle {
+  font-family: var(--font-serif);
+  color: var(--color);
+}
+
+.home--main--content {
   margin-top: 2rem;
 }
 
-.home-books-section {
+.home--main--content--section--subtitle-2 {
+  font-size: 2rem;
+  font-family: var(--font-serif);
+  color: var(--color);
+  border-bottom: 1px solid var(--color);
+}
+
+.home--main--content--section--books {
   display: flex;
   justify-content: space-around;
   margin-bottom: 15px;
 }
 
-.home-figure,
+.home--main--content--section--books--link {
+  color: var(--color);
+  text-decoration: none;
+}
+
+.home--main--content--section--books--link:hover {
+  color: var(--color);
+  text-decoration: none;
+}
+
+.home--main--content--section--books--figure-2 {
+  display:none;
+}
+
+@media (min-width: 768px) {
+  .home--main--content--section--books--figure-2 {
+    display: initial;
+  }
+}
+
+.home--main--content--section--books--figure-3 {
+  display:none;
+}
+
+@media (min-width: 992px) {
+  .home--main--content--section--books--figure-3 {
+    display: initial;
+  }
+}
+
+.home--main--content--section--books--figure,
 .category-figure {
   margin: 1rem;
   text-align: center;
@@ -202,135 +235,103 @@ main {
   margin-bottom: 25px;
 }
 
-.home-figure-2 {
-  display:none;
-}
-
-@media (min-width: 768px) {
-  .home-figure-2 {
-    display: initial;
-  }
-}
-
-.home-figure-3 {
-  display:none;
-}
-
-@media (min-width: 992px) {
-  .home-figure-3 {
-    display: initial;
-  }
-}
-
-.home-figure:hover,
+.home--main--content--section--books--figure:hover,
 .category-figure:hover {
   box-shadow: 0 4px 8px 0 var(--color-4), 0 6px 20px 0 var(--color-4);
 }
 
-.home-figure-img,
-.category-figure-img {
+.home--main--content--section--books--figure--img {
   width: 100%;
   max-width: 260px;
   height: auto;
   max-height: 350px;
 }
 
-.home-figure-figcaption,
-.category-figure-figcaption {
+.home--main--content--section--books--figure--figcaption {
   max-width: 260px;
   text-align: center;
   padding: 10px 20px;
-}
-
-.figure-link {
-  color: var(--color);
-  text-decoration: none;
-}
-
-.figure-link :hover {
-  color: var(--color);
-  text-decoration: none;
 }
 
 /*
  * Footer
  */
 
-footer {
+.footer {
   background-color: var(--background-color-secondary);
 }
 
-.footer-content {
+.footer--content {
   text-align: center;
   padding-top: 2.5rem;
   padding-bottom: 5rem;
 }
 
 @media (min-width: 768px) {
-  .footer-content {
+  .footer--content {
     display:flex;
     text-align: left;
   }
 }
 
-.footer-title {
+@media (min-width: 768px) {
+  .footer--content--left {
+    margin-left: 100px;
+  }
+}
+
+.footer--content--left--title {
   font-family: var(--font-serif);
   margin-bottom: 0.5rem;
 }
 
-.footer-subtitle {
+.footer--content--left--subtitle {
   font-size: 0.9rem;
   color: var(--text-color-secondary);
   margin-bottom: 0.5rem;
 }
 
-.footer-social {
+.footer--content--left--social {
   font-size: 2rem;
   color: var(--text-color-secondary);
   margin-bottom: 2rem;
 }
 
-.social-link {
+.footer--content--left--social--link {
   color: var(--text-color-secondary);
   text-decoration: none;
 }
 
-.social-link:hover {
+.footer--content--left--social--link:hover {
   color: var(--color-2);
   text-decoration: none;
 }
 
-@media (min-width: 768px) {
-  .footer-left {
-    margin-left: 100px;
-  }
-}
-
-.footer-right {
+.footer--right {
   margin-left:auto;
 }
 
 @media (min-width: 768px) {
-  .footer-right {
+  .footer--right {
     margin-right: 100px;
   }
 }
 
-.footer-link-container {
+.footer--right--link-container {
   display: inline;
   margin-right: 5px;
   font-size: 0.9rem;
 }
 
 @media (min-width:576px) {
-  .footer-link-container {
+  .footer--right--link-container {
     font-size: 1rem;
     margin-right: 10px;
   }
 }
 
 @media (min-width: 768px) {
-  .footer-link-container {
+  .footer--right--link-container {
     display: block;
     font-size: 1rem;
     margin-bottom: 0.5rem;
@@ -341,11 +342,23 @@ footer {
  * Categories page
  */
 
-.tags {
+.category--main {
+  padding-bottom: 3rem;
+}
+
+.category--main--subtitle {
+  font-size: 2rem;
+  font-family: var(--font-serif);
+  color: var(--color);
+  border-bottom: 1px solid var(--color);
+}
+
+/* category tags */
+.category--tags {
   margin-top: 1rem;
 }
 
-.tag-link {
+.category--tags--link {
   display: inline-block;
   margin-right: 0.5rem;
   margin-bottom: 0.3rem;
@@ -357,7 +370,8 @@ footer {
   text-decoration: none;
 }
 
-.category-books-section {
+/* category content */
+.category--content--books {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -365,43 +379,76 @@ footer {
 }
 
 @media (min-width: 576px) {
-  .category-books-section {
+  .category--content--books {
     justify-content: initial;
   }
 }
 
-.category-figure-link {
+.category--content--books--link {
   flex: 0 0 260px;
+  color: var(--color);
+  text-decoration: none;
+}
+
+.category--content--books--link:hover {
+  color: var(--color);
+  text-decoration: none;
 }
 
 @media (min-width: 576px) {
-  .category-figure-link {
+  .category--content--books--link {
     flex: 0 0 50%;
   }
 }
 
 @media (min-width: 768px) {
-  .category-figure-link {
+  .category--content--books--link {
     flex: 0 0 33%;
   }
 }
 
 @media (min-width: 992px) {
-  .category-figure-link {
+  .category--content--books--link {
     flex: 0 0 25%;
   }
 }
 
-.pagination-container {
+.category--content--books--figure {
+  margin: 1rem;
+  text-align: center;
+  background-color: var(--background-color);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
+.category--content--books--figure:hover {
+  box-shadow: 0 4px 8px 0 var(--color-4), 0 6px 20px 0 var(--color-4);
+}
+
+.category--content--books--figure--img {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  max-height: 350px;
+}
+
+.category--content--books--figure--figcaption {
+  max-width: 260px;
+  text-align: center;
+  padding: 10px 20px;
+}
+
+/* pagination*/
+.category--content--pagination {
   text-align: center;
 }
 
-.page-link {
+.category--content--pagination--link {
   font-size: 1.3rem;
   padding: 5px 10px;
 }
 
-.active-page-link {
+.category--content--pagination--link-active {
   font-weight: 700;
   padding: 5px 10px;
   border-radius: 10px;
@@ -409,7 +456,7 @@ footer {
   background-color: var(--color-3);
 }
 
-.active-page-link:hover {
+.category--content--pagination--link-active:hover {
   color: var(--text-color-inverse);
 }
 
@@ -417,17 +464,28 @@ footer {
  * Books page
  */
 
-.book-info {
+.book--main {
+  padding-bottom: 3rem;
+}
+
+.book--main--subtitle {
+  font-size: 2rem;
+  font-family: var(--font-serif);
+  color: var(--color);
+  border-bottom: 1px solid var(--color);
+}
+
+.book--main--content {
   margin-top: 2rem;
 }
 
 @media (min-width: 768px) {
-  .book-info {
+  .book--main--content {
     display:flex;
   }
 }
 
-.book-cover {
+.book--main--content--cover {
   text-align: center;
   margin-right: 25px;
   margin-left: 25px;
@@ -435,7 +493,7 @@ footer {
 }
 
 @media (min-width: 768px) {
-  .book-cover {
+  .book--main--content--cover {
     flex: 30%;
     margin-right: 0;
     margin-left: 0;
@@ -443,18 +501,18 @@ footer {
 }
 
 @media (min-width: 992px) {
-  .book-cover {
+  .book--main--content--cover {
     flex: 50%;
   }
 }
 
-.book-content {
+.book--main--content--info {
   margin-right: 35px;
   margin-left: 35px;
 }
 
 @media (min-width: 768px) {
-  .book-content {
+  .book--main--content--info {
     flex: 70%;
     margin-right: 0;
     margin-left: 20px;
@@ -462,84 +520,84 @@ footer {
 }
 
 @media (min-width: 992px) {
-  .book-content {
+  .book--main--content--info {
     flex: 50%;
     margin-left: 0;
   }
 }
 
-.book-details-container {
+.book--main--content--info--detail {
   font-size: 1.1rem;
   margin-bottom: 0.7rem;
 }
 
 @media (min-width: 576px) {
-  .book-details-container {
+  .book--main--content--info--detail {
     display: flex;
     margin-left: 20px;
     margin-right: 20px;
   }
 }
 
-.book-details-legend {
+.book--main--content--info--detail--legend {
   margin-bottom: 0.2rem;
   font-weight: 700;
 }
 
 @media (min-width: 576px) {
-  .book-details-legend {
+  .book--main--content--info--detail--legend {
     flex: 25%;
   }
 }
 
 @media (min-width: 768px) {
-  .book-details-legend {
+  .book--main--content--info--detail--legend {
     flex: 30%;
   }
 }
 
 @media (min-width: 992px) {
-  .book-details-legend {
+  .book--main--content--info--detail--legend {
     flex: 25%;
   }
 }
 
 @media (min-width: 1200px) {
-  .book-details-legend {
+  .book--main--content--info--detail--legend {
     flex: 20%;
   }
 }
 
 @media (min-width: 576px) {
-  .book-details-value {
+  .book--main--content--info--detail--value {
     flex: 75%;
   }
 }
 
 @media (min-width: 768px) {
-  .book-details-value {
+  .book--main--content--info--detail--value {
     flex: 70%;
   }
 }
 
 @media (min-width: 992px) {
-  .book-details-value {
+  .book--main--content--info--detail--value {
     flex: 75%;
   }
 }
 
 @media (min-width: 1200px) {
-   .book-details-value {
+   .book--main--content--info--detail--value {
     flex: 80%;
   }
 }
 
-.book-download-link {
+.book--main--content--info--download {
   margin-top: 2.5rem;
   text-align: center;
 }
 
-.download-book-link {
+.book--main--content--info--download--link {
   font-size: 1.4rem;
   padding: 10px 20px;
   border-radius: 10px;
@@ -548,22 +606,22 @@ footer {
   text-decoration: none;
 }
 
+.book--main--content--info--download--link:hover {
+  box-shadow: 0 4px 8px 0 var(--color-4), 0 6px 20px 0 var(--color-4);
+}
+
 @media (min-width: 768px) {
-  .download-book-link {
+  .book--main--content--info--download--link {
     font-size: 1.7rem;
   }
 }
 
 @media (min-width: 1200px) {
-  .download-book-link {
+  .book--main--content--info--download--link {
     font-size: 2rem;
   }
 }
 
-.download-book-link:hover {
-  box-shadow: 0 4px 8px 0 var(--color-4), 0 6px 20px 0 var(--color-4);
-}
-
-.download-icon {
+.book--main--content--info--download--icon {
   margin-right: 0.5rem;
 }

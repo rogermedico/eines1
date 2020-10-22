@@ -28,7 +28,9 @@ export function buildCategory(data){
 function content(data,search,actualPage){
 
   /* set title */
-  document.querySelector('#title').textContent = search.t;
+  const title = document.querySelector('#category-title');
+  title.textContent = search.t;
+  title.classList.add('category--main--subtitle');
   
   /* set tags */
   const tags = TOPICS[search.t].split(',');
@@ -36,16 +38,16 @@ function content(data,search,actualPage){
     /* tag link */
     const tagLink = document.createElement('a');
     tagLink.setAttribute('href', '#');
-    tagLink.classList.add('tag-link');
+    tagLink.classList.add('category--tags--link');
     tagLink.textContent = t;
-    document.querySelector('#tags').appendChild(tagLink);
+    document.querySelector('#category-tags').appendChild(tagLink);
 
   });
 
   /* make books section */
-  const content = document.querySelector('#content');
+  const content = document.querySelector('#category-content');
   const booksSection = document.createElement('div');
-  booksSection.classList.add('category-books-section');
+  booksSection.classList.add('category--content--books');
   content.insertBefore(booksSection,content.childNodes[0]);
 
   /* add books to books section acording to actual page*/
@@ -56,25 +58,25 @@ function content(data,search,actualPage){
 
     /* figure link */
     const figureLink = document.createElement('a');
-    figureLink.classList.add('category-figure-link','figure-link');
+    figureLink.classList.add('category--content--books--link');
     figureLink.setAttribute('href', `${BOOK_PAGE_NAME}?id=${books[book].ID}`);
     booksSection.appendChild(figureLink);
 
     /* figure */
     const fig = document.createElement('figure');
-    fig.classList.add('category-figure');
+    fig.classList.add('category--content--books--figure');
     figureLink.appendChild(fig);
 
     /* img */
     const img = document.createElement('img');
-    img.classList.add('category-figure-img');
+    img.classList.add('category--content--books--figure--img');
     img.setAttribute('src', books[book].cover);
     img.setAttribute('alt', `${books[book].title} cover`);
     fig.appendChild(img); 
 
     /* figcaption */
     const figcaption = document.createElement('figcaption');
-    figcaption.classList.add('category-figure-figcaption');
+    figcaption.classList.add('category--content--books--figure--figcaption');
     figcaption.textContent = books[book].title
     fig.appendChild(figcaption);
 
@@ -101,7 +103,7 @@ function pagination(data,search){
   /* make pagination section */
   const content = document.querySelector('#content');
   const pagSection = document.createElement('div');
-  pagSection.classList.add('pagination-container');
+  pagSection.classList.add('category--content--pagination');
   content.appendChild(pagSection);
 
   for(let i=1;i<=nPages;i++){
@@ -109,8 +111,8 @@ function pagination(data,search){
     /* make page link */
     const pageLink = document.createElement('a');
     pageLink.setAttribute('href', `${CATEGORY_PAGE_NAME}?t=${search.t}&p=${i}`);
-    pageLink.classList.add('page-link','link');
-    if(i==actualPage) pageLink.classList.add('active-page-link');
+    pageLink.classList.add('category--content--pagination--link','link');
+    if(i==actualPage) pageLink.classList.add('category--content--pagination--link-active');
     pageLink.textContent = i;
     pagSection.appendChild(pageLink);
   }
