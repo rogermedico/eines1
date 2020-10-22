@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <header>
+  <header class="container">
     <h1 class="title">
       <a class="menu-link" href="index.html"><i class="logo menu-link fas fa-code"></i></a><span class="title-text">Arya
         Web Development
@@ -24,11 +24,13 @@
       <a class="menu-link" href="#"><i class="top-menu-icon far fa-user"></i></a>
     </div>
   </header>
-  <main>
-    <h2>Free online books</h2>
-    <p>Huge collection of books related to main pillars of web development. The collection includes books about HTML,
-      CSS, JavaScript, Backend technologies and development Frameworks. </p>
-    <div class="loader">
+  <main class="container">
+    <h2 id="title" class="subtitle-2"></h2>
+    <div class="book-info">
+      <div id="cover" class="book-cover"></div>
+      <div id="content" class="book-content"></div>
+    </div>
+    <div id="loader" class="loader">
       <div class="lds-roller">
         <div></div>
         <div></div>
@@ -41,6 +43,27 @@
       </div>
     </div>
   </main>
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-left">
+        <div class="footer-title">
+          Arya Web Development Library
+        </div>
+        <div class="footer-subtitle">
+          Your free library on internet
+        </div>
+        <div class="footer-social">
+          <a class="social-link" href="#"><i class="fab fa-facebook-square"></i></a>
+          <a class="social-link" href="#"><i class="fab fa-twitter-square"></i></a>
+          <a class="social-link" href="#"><i class="fab fa-instagram-square"></i></a>
+          <a class="social-link" href="#"><i class="fab fa-youtube-square"></i></a>
+          <a class="social-link" href="#"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="footer-right">
+        <div id="footer-links"></div>
+      </div>
+  </footer>
   <script src="./assets/scripts/index.js"></script>
 </body>
 

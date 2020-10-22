@@ -72,7 +72,7 @@ header {
 
 .logo {
   font-size: 2.3rem ;
-  width: auto;
+  width: auto; 
   margin-right: 15px;
 }
 
@@ -350,4 +350,143 @@ footer {
 
 .active-page-link:hover {
   color: var(--text-color-inverse);
+}
+
+.book-info {
+  margin-top: 2rem;
+}
+
+.book-cover {
+  text-align: center;
+  margin-right: 25px;
+  margin-left: 25px;
+  margin-bottom: 2rem;
+}
+
+.book-cover-img {
+
+}
+
+.book-content {
+  margin-right: 35px;
+  margin-left: 35px;
+}
+
+@media (min-width: 576px) {
+
+}
+
+@media (min-width: 768px) {
+  .book-info {
+    display:flex;
+  }
+  .book-cover {
+    flex: 30%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+  
+  .book-content {
+    flex: 70%;
+    margin-right: 0;
+    margin-left: 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  .book-cover {
+    flex: 50%;
+  }
+  
+  .book-content {
+    flex: 50%;
+    margin-left: 0;
+  }
+}
+
+.book-details-container {
+  font-size: 1.1rem;
+  margin-bottom: 0.7rem;
+}
+
+.book-details-legend {
+  margin-bottom: 0.2rem;
+  font-weight: 700;
+}
+
+.book-details-value {
+
+}
+
+.book-download-link {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.download-book-link {
+  font-size: 1.4rem;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: var(--text-color-inverse);
+  background-color: var(--color-3);
+  text-decoration: none;
+}
+
+.download-book-link:hover {
+  box-shadow: 0 4px 8px 0 var(--color-4), 0 6px 20px 0 var(--color-4);
+}
+
+.download-icon {
+  margin-right: 0.5rem;
+}
+
+@media (min-width: 576px) {
+  .book-details-container {
+    display: flex;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .book-details-legend {
+    flex: 25%;
+  }
+  
+  .book-details-value {
+    flex: 75%;
+  }
+}
+
+@media (min-width: 768px) {
+  .download-book-link {
+    font-size: 1.7rem;
+  }
+  .book-details-legend {
+    flex: 30%;
+  }
+  
+  .book-details-value {
+    flex: 70%;
+  }
+}
+
+@media (min-width: 992px) {
+  .book-details-legend {
+    flex: 25%;
+  }
+  
+  .book-details-value {
+    flex: 75%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .download-book-link {
+    font-size: 2rem;
+  }
+  .book-details-legend {
+    flex: 20%;
+  }
+  
+  .book-details-value {
+    flex: 80%;
+  }
 }
