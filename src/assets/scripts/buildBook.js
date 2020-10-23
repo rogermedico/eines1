@@ -1,4 +1,4 @@
-import { TOPICS, N_ELEMENTS_PAGE, CATEGORY_PAGE_NAME, BOOK_PAGE_NAME } from './constants';
+import { BOOK_PAGE_NAME, CATEGORY_PAGE_NAME, N_RELATED_BOOKS } from './constants';
 import { buildFooter } from './buildFooter';
 import { searchToJSON } from './url';
 
@@ -19,13 +19,22 @@ export function buildBook(data){
   Object.values(data).forEach(topic => allBooks = allBooks.concat(topic));
   book = allBooks.find(b => b.ID === search.id);
 
+  /* search book topics */
+  const bookTopics = [];
+  Object.entries(data).map(([k,v])=>{
+    if(v.find(b => b.ID == book.ID)) bookTopics.push(k)
+  });
+
   /* check if book is correct */
   if(!book){ 
     window.location.href = '/';
   }
   else{
     /* build content book info */
-    content(book);
+    bookInfo(book,bookTopics);
+
+    /* build related books */
+    relatedBooks(data,bookTopics);
     
     /* build footer links */
 		buildFooter(data);
@@ -33,7 +42,7 @@ export function buildBook(data){
 
 }
 
-function content(book){
+function bookInfo(book,bookTopics){
 
   /* set title */
   const title = document.querySelector('#book-title');
@@ -128,6 +137,29 @@ function content(book){
   contentContainer.appendChild(content);
   detailsSection.appendChild(contentContainer);
 
+  /* categories */
+  const categoriesContainer = document.createElement('div');
+  categoriesContainer.classList.add('book--main--content--info--detail');
+  const categoriesLegend = document.createElement('div');
+  categoriesLegend.classList.add('book--main--content--info--detail--legend');
+  categoriesLegend.textContent = 'Categories';
+  categoriesContainer.appendChild(categoriesLegend);
+  const categories = document.createElement('div');
+  categories.classList.add('book--main--content--info--detail--value');
+  bookTopics.forEach(topic =>{
+    /* categories link */
+    const categoriesLink = document.createElement('a');
+    categoriesLink.setAttribute('href', `${CATEGORY_PAGE_NAME}?t=${topic}`);
+    categoriesLink.classList.add('link');
+    categoriesLink.textContent = topic;
+    categories.appendChild(categoriesLink);
+    const separator = document.createTextNode(', ');
+    categories.appendChild(separator);
+  });
+  categories.removeChild(categories.lastChild);
+  categoriesContainer.appendChild(categories);
+  detailsSection.appendChild(categoriesContainer);
+    
   /* tags */
   const tagsContainer = document.createElement('div');
   tagsContainer.classList.add('book--main--content--info--detail');
@@ -151,29 +183,6 @@ function content(book){
   tagsContainer.appendChild(tags);
   detailsSection.appendChild(tagsContainer);
 
-  /* categories */
-  const categoriesContainer = document.createElement('div');
-  categoriesContainer.classList.add('book--main--content--info--detail');
-  const categoriesLegend = document.createElement('div');
-  categoriesLegend.classList.add('book--main--content--info--detail--legend');
-  categoriesLegend.textContent = 'Categories';
-  categoriesContainer.appendChild(categoriesLegend);
-  const categories = document.createElement('div');
-  categories.classList.add('book--main--content--info--detail--value');
-  book.categories.forEach(c =>{
-    /* categories link */
-    const categoriesLink = document.createElement('a');
-    categoriesLink.setAttribute('href', '#');
-    categoriesLink.classList.add('link');
-    categoriesLink.textContent = c.name;
-    categories.appendChild(categoriesLink);
-    const separator = document.createTextNode(', ');
-    categories.appendChild(separator);
-  });
-  categories.removeChild(categories.lastChild);
-  categoriesContainer.appendChild(categories);
-  detailsSection.appendChild(categoriesContainer);
-    
   /* download link */
   const downloadContainer = document.createElement('div');
   downloadContainer.classList.add('book--main--content--info--download');
@@ -190,5 +199,72 @@ function content(book){
 
   /* remove loader */
   document.querySelector('#loader').remove();
+
+}
+
+function relatedBooks(data,bookTopics){
+
+  /* build related book figure */
+  const relatedBooksSection = document.querySelector('#book-related');
+
+  /* title */
+  const title = document.createElement('h2');
+  title.classList.add('book--related--subtitle');
+  title.textContent = 'Related Books';
+  relatedBooksSection.appendChild(title);
+
+  /* container */
+  const bookRelatedContainer = document.createElement('div');
+  bookRelatedContainer.classList.add('book--related--container');
+  relatedBooksSection.appendChild(bookRelatedContainer);
+
+  const relatedBooksLog = [];
+
+  for(let i=0;i<N_RELATED_BOOKS;i++){
+
+    /* get the book topic */
+    const bookTopic = bookTopics[i%bookTopics.length];
+
+    /* get random book from that topic */
+    let randomNumber = Math.floor(Math.random() * data[bookTopic].length);
+    let relatedBook = data[bookTopic][randomNumber];
+
+    /* avoid duplicate related books (don't do a while loop to avoid infinite loops in really short topics) */
+    for(let i=0;i<100;i++){
+      if(!relatedBooksLog.includes(relatedBook.ID)){
+        relatedBooksLog.push(relatedBook.ID);
+        break;
+      }
+      else{
+        randomNumber = Math.floor(Math.random() * data[bookTopic].length);
+        relatedBook = data[bookTopic][randomNumber];
+      }
+    }
+
+    /* figure link */
+    const figureLink = document.createElement('a');
+    figureLink.classList.add('book--related--container--link', `book--related-${i}`);
+    figureLink.setAttribute('href', `${BOOK_PAGE_NAME}?id=${relatedBook.ID}`);
+    bookRelatedContainer.appendChild(figureLink);
+
+    /* figure */
+    const fig = document.createElement('figure');
+    fig.classList.add('book--related--container--figure');
+    figureLink.appendChild(fig);
+
+    /* img */
+    const img = document.createElement('img');
+    img.classList.add('book--related--container--figure--img');
+    img.setAttribute('src', relatedBook.cover);
+    img.setAttribute('alt', `${relatedBook.title} cover`);
+    fig.appendChild(img); 
+
+    /* figcaption */
+    const figcaption = document.createElement('figcaption');
+    figcaption.classList.add('book--related--container--figure--figcaption');
+    figcaption.textContent = relatedBook.title
+    fig.appendChild(figcaption);
+
+  }
 
 }

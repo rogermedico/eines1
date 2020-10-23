@@ -35,3 +35,6 @@ export const LOCATIONS = {
 
 /* number of elements in category page */
 export const N_ELEMENTS_PAGE = 12;
+
+/* related books number */
+export const N_RELATED_BOOKS = 4;

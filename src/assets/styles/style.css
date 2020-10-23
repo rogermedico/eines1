@@ -625,3 +625,75 @@ body {
 .book--main--content--info--download--icon {
   margin-right: 0.5rem;
 }
+
+.book--related {
+  margin-top: 2rem;
+}
+
+.book--related--subtitle {
+  font-size: 2rem;
+  font-family: var(--font-serif);
+  color: var(--color);
+  border-bottom: 1px solid var(--color);
+}
+
+.book--related--container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.book--related-2 {
+  display:none;
+}
+
+@media (min-width: 768px) {
+  .book--related-2 {
+    display: initial;
+  }
+}
+
+.book--related-3 {
+  display:none;
+}
+
+@media (min-width: 992px) {
+  .book--related-3 {
+    display: initial;
+  }
+}
+
+.book--related--container--link {
+  flex: 25%;
+  color: var(--color);
+  text-decoration: none;
+}
+
+.book--related--container--link:hover {
+  color: var(--color);
+  text-decoration: none;
+}
+
+.book--related--container--figure {
+  margin: 1rem;
+  text-align: center;
+  background-color: var(--background-color);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
+.book--related--container--figure:hover {
+  box-shadow: 0 4px 8px 0 var(--color-4), 0 6px 20px 0 var(--color-4);
+}
+
+.book--related--container--figure--img {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  max-height: 350px;
+}
+
+.book--related--container--figure--figcaption {
+  max-width: 260px;
+  text-align: center;
+  padding: 10px 20px;
+}
