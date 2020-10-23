@@ -4,7 +4,7 @@ export const MAX_RESULTS = 200;
 /* sugar to sessionstorage stored info key */
 export const SUGAR = 'eines1pac1';
 
-/* number of books shown in homepage. Optimized for 4 books althougt 3 or 5 can also work */
+/* number of books shown in homepage. Optimized for 4. Unexpected behaviour if changed */
 export const HOME_BOOKS_NUMBER = 4;
 
 /* name of category and book page */
@@ -36,5 +36,5 @@ export const LOCATIONS = {
 /* number of elements in category page */
 export const N_ELEMENTS_PAGE = 12;
 
-/* related books number */
+/* related books number. Optimized for 4. Unexpected behaviour if changed */
 export const N_RELATED_BOOKS = 4;
