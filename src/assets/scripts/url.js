@@ -2,21 +2,28 @@ import { LOCATIONS } from './constants';
 
 function extractPathname(){
   const path = window.location.pathname.split('/');
-  return path[path.length-1];
+  const actualPage = path[path.length-1];
+  return actualPage;
+}
+
+export function getHomeUrl(){
+  const path = window.location.pathname;
+  const newPath = `${path.substring(0,path.lastIndexOf('/'))}/${LOCATIONS.home[0]}`;
+  return newPath;
 }
 
 export function iAmInHome(){
-  if(LOCATIONS.home.localeCompare(extractPathname()) == 0) return true;
+  if(LOCATIONS.home.includes(extractPathname())) return true;
   else return false;
 }
 
 export function iAmInCategory(){
-  if(LOCATIONS.category.localeCompare(extractPathname()) == 0) return true;
+  if(LOCATIONS.category.includes(extractPathname())) return true;
   else return false; 
 }
 
 export function iAmInBook(){
-  if(LOCATIONS.book.localeCompare(extractPathname()) == 0) return true;
+  if(LOCATIONS.book.includes(extractPathname())) return true;
   else return false;
 }
 

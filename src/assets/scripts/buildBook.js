@@ -1,6 +1,6 @@
 import { BOOK_PAGE_NAME, CATEGORY_PAGE_NAME, LOCATIONS, N_RELATED_BOOKS } from './constants';
 import { buildFooter } from './buildFooter';
-import { searchToJSON } from './url';
+import { getHomeUrl, searchToJSON } from './url';
 
 function decodeHtml(html) {
   let txt = document.createElement("textarea");
@@ -21,7 +21,7 @@ export function buildBook(data){
 
   /* check if book is correct */
   if(!book){ 
-    window.location.href = LOCATIONS.home;
+    window.location.href = getHomeUrl();
   }
 
   /* search book topics */
