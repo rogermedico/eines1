@@ -1,4 +1,4 @@
-import { BOOK_PAGE_NAME, CATEGORY_PAGE_NAME, N_RELATED_BOOKS } from './constants';
+import { BOOK_PAGE_NAME, CATEGORY_PAGE_NAME, LOCATIONS, N_RELATED_BOOKS } from './constants';
 import { buildFooter } from './buildFooter';
 import { searchToJSON } from './url';
 
@@ -19,26 +19,25 @@ export function buildBook(data){
   Object.values(data).forEach(topic => allBooks = allBooks.concat(topic));
   book = allBooks.find(b => b.ID === search.id);
 
+  /* check if book is correct */
+  if(!book){ 
+    window.location.href = LOCATIONS.home;
+  }
+
   /* search book topics */
   const bookTopics = [];
   Object.entries(data).map(([k,v])=>{
     if(v.find(b => b.ID == book.ID)) bookTopics.push(k)
   });
 
-  /* check if book is correct */
-  if(!book){ 
-    window.location.href = '/';
-  }
-  else{
-    /* build content book info */
-    bookInfo(book,bookTopics);
+  /* build content book info */
+  bookInfo(book,bookTopics);
 
-    /* build related books */
-    relatedBooks(data,bookTopics);
-    
-    /* build footer links */
-		buildFooter(data);
-  }
+  /* build related books */
+  relatedBooks(data,bookTopics);
+  
+  /* build footer links */
+  buildFooter(data);
 
 }
 

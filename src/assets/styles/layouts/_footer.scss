@@ -1,0 +1,76 @@
+/*
+ * Footer
+ */
+
+.footer {
+  background-color: $background-color-secondary;
+}
+
+.footer--content {
+  padding-top: 2.5rem;
+  padding-bottom: 5rem;
+  text-align: center;
+
+  @media (min-width: $small) {
+    display: flex;
+    text-align: left;
+  }
+}
+
+.footer--content--left {
+  @media (min-width: 768px) {
+    margin-left: 100px;
+  }
+}
+
+.footer--content--left--title {
+  margin-bottom: .5rem;
+  font-family: $font-family-serif;
+}
+
+.footer--content--left--subtitle {
+  margin-bottom: .5rem;
+  font-size: .9rem;
+  color: $text-color-secondary;
+}
+
+.footer--content--left--social {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: $text-color-secondary;
+}
+
+.footer--content--left--social--link {
+  color: $text-color-secondary;
+  text-decoration: none;
+}
+
+.footer--content--left--social--link:hover {
+  color: $color-2;
+  text-decoration: none;
+}
+
+.footer--right {
+  margin-left: auto;
+
+  @media (min-width: $small) {
+    margin-right: 100px;
+  }
+}
+
+.footer--right--link-container {
+  display: inline;
+  margin-right: 5px;
+  font-size: .9rem;
+
+  @media (min-width: $extra-small) {
+    font-size: 1rem;
+    margin-right: 10px;
+  }
+
+  @media (min-width: $small) {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: .5rem;
+  }
+}

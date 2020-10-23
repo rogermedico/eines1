@@ -1,0 +1,58 @@
+/*
+ * Header
+ */
+
+.header {
+  display: flex;
+  padding-top: 2.5rem;
+  padding-bottom: 5rem;
+  align-items: center;
+}
+
+/* logo */
+.header--logo {
+  width: auto;
+  margin-right: 15px;
+  font-size: 2.3rem;
+}
+
+/* title text */
+.header--title {
+  font-size: 2.3rem;
+  font-family: $font-family-serif;
+  font-weight: 400;
+  color: $color-3;
+}
+
+.header--title--initials {
+  @media (min-width: $small) {
+    display: none;
+  }
+}
+
+.header--title--text {
+  display: none;
+
+  @media (min-width: $small) {
+    display: initial;
+  }
+}
+
+/* Top menu */
+.header--menu {
+  margin-left: auto;
+}
+
+.header--menu--icon {
+  font-size: 2.1rem;
+}
+
+.header--link {
+  color: $color-3;
+  text-decoration: none;
+}
+
+.header--link:hover {
+  color: $color-4;
+  text-decoration: none;
+}

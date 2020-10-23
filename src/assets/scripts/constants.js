@@ -28,9 +28,9 @@ export const ENDPOINT = {
 
 /* locations of site */
 export const LOCATIONS = {
-    home: ['/', '/index.html'],
-    category: ['/category.html'],
-    book: ['/book.html']
+    home: 'index.html',
+    category: 'category.html',
+    book: 'book.html'
 }
 
 /* number of elements in category page */

@@ -7,8 +7,9 @@
     "parcel:dev": "parcel src/*.html -p 8123 --open",
     "parcel:build": "parcel build src/*.html --public-url ./ --out-dir dist --no-source-maps --no-cache",
     "clean": "rimraf dist .cache .cache-loader",
+    "stylelint": "stylelint src/**/*.scss",
     "dev": "npm-run-all clean parcel:dev",
-    "build": "npm-run-all clean parcel:build"
+    "build": "npm-run-all clean stylelint parcel:build"
   },
   "keywords": [],
   "author": "Roger Medico Piqué",
@@ -27,7 +28,11 @@
     "postcss-clean": "^1.1.0",
     "postcss-modules": "^3.2.2",
     "postcss-preset-env": "^6.7.0",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "sass": "^1.27.0",
+    "stylelint": "^13.7.2",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-scss": "^3.18.0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1"

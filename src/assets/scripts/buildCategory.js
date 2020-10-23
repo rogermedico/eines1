@@ -1,4 +1,4 @@
-import { TOPICS, N_ELEMENTS_PAGE, CATEGORY_PAGE_NAME, BOOK_PAGE_NAME } from './constants';
+import { TOPICS, N_ELEMENTS_PAGE, CATEGORY_PAGE_NAME, BOOK_PAGE_NAME, LOCATIONS } from './constants';
 import { buildFooter } from './buildFooter';
 import { searchToJSON } from './url';
 
@@ -9,7 +9,7 @@ export function buildCategory(data){
 
   /* check if category is correct */
   if(!Object.keys(TOPICS).includes(search.t)){ 
-    window.location.href = '/';
+    window.location.href = LOCATIONS.home;
   }
   else{
 
