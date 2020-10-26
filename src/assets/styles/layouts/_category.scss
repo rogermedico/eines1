@@ -32,23 +32,24 @@
 
 /* category content */
 .category--content--books {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: auto auto;
   margin-bottom: 15px;
-  justify-content: center;
 
   @media (min-width: $extra-small) {
-    justify-content: initial;
+    grid-template-columns: none;
+    display: flex;
+    flex-wrap: wrap;
   }
 }
 
 .category--content--books--link {
-  flex: 0 0 260px;
+  flex: 0 1 260px;
   color: $color;
   text-decoration: none;
 
   @media (min-width: $extra-small) {
-    flex: 0 0 50%;
+    flex: 0 1 50%;
   }
 
   @media (min-width: $small) {
