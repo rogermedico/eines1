@@ -2,7 +2,7 @@
   "name": "eines1-pac1",
   "version": "1.0.0",
   "description": "Sample book store with fetch data.",
-  "main": "src/index.html",
+  "main": "src/assets/scripts/index.js",
   "scripts": {
     "parcel:dev": "parcel src/*.html -p 8123 --open",
     "parcel:build": "parcel build src/*.html --public-url ./ --out-dir dist --no-source-maps --no-cache",
@@ -35,6 +35,8 @@
     "stylelint-scss": "^3.18.0"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.1"
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "core-js": "^3.6.5",
+    "whatwg-fetch": "^3.4.1"
   }
 }

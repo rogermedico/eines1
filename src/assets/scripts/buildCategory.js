@@ -82,8 +82,9 @@ function content(data,search,actualPage){
 
   }
     
-  /* remove loader */
-  document.querySelector('#loader').remove();
+		/* remove loader (workaround for ie11)*/
+		const loader = document.querySelector('#loader');
+		loader.parentNode.removeChild(loader);
 
 }
 

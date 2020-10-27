@@ -1,3 +1,7 @@
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
+import 'whatwg-fetch';
+
 import { getData } from './getData';
 import { buildHome } from './buildHome';
 import { buildCategory } from './buildCategory';
