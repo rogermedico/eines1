@@ -59,11 +59,11 @@
   @media (min-width: $medium) {
     flex: 0 0 25%;
   }
-}
 
-.category--content--books--link:hover {
-  color: $color;
-  text-decoration: none;
+  &:hover {
+    color: $color;
+    text-decoration: none;
+  }
 }
 
 .category--content--books--figure {
@@ -72,10 +72,10 @@
   background-color: var(--background-color);
   box-shadow: 0 4px 8px 0 $box-shadow, 0 6px 20px 0 $box-shadow;
   margin-bottom: 25px;
-}
 
-.category--content--books--figure:hover {
-  box-shadow: 0 4px 8px 0 $box-shadow-hover, 0 6px 20px 0 $box-shadow-hover;
+  &:hover {
+    box-shadow: 0 4px 8px 0 $box-shadow-hover, 0 6px 20px 0 $box-shadow-hover;
+  }
 }
 
 .category--content--books--figure--img {
@@ -107,8 +107,8 @@
   border-radius: 10px;
   color: $text-color-inverse;
   background-color: $color-3;
-}
 
-.category--content--pagination--link-active:hover {
-  color: $text-color-inverse;
+  &:hover {
+    color: $text-color-inverse;
+  }
 }

@@ -31,11 +31,11 @@
 .home--main--content--section--books--link {
   color: $color;
   text-decoration: none;
-}
 
-.home--main--content--section--books--link:hover {
-  color: $color;
-  text-decoration: none;
+  &:hover {
+    color: $color;
+    text-decoration: none;
+  }
 }
 
 .home--main--content--section--books--figure-2 {
@@ -60,10 +60,10 @@
   text-align: center;
   background-color: $background-color;
   box-shadow: 0 4px 8px 0 $box-shadow, 0 6px 20px 0 $box-shadow;
-}
 
-.home--main--content--section--books--figure:hover {
-  box-shadow: 0 4px 8px 0 $box-shadow-hover, 0 6px 20px 0 $box-shadow-hover;
+  &:hover {
+    box-shadow: 0 4px 8px 0 $box-shadow-hover, 0 6px 20px 0 $box-shadow-hover;
+  }
 }
 
 .home--main--content--section--books--figure--img {

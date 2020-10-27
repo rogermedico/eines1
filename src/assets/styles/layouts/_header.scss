@@ -50,9 +50,9 @@
 .header--link {
   color: $color-3;
   text-decoration: none;
-}
 
-.header--link:hover {
-  color: $color-4;
-  text-decoration: none;
+  &:hover {
+    color: $color-4;
+    text-decoration: none;
+  }
 }

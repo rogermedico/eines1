@@ -124,10 +124,10 @@
   @media (min-width: $large) {
     font-size: 2rem;
   }
-}
 
-.book--main--content--info--download--link:hover {
-  box-shadow: 0 4px 8px 0 $box-shadow-hover, 0 6px 20px 0 $box-shadow-hover;
+  &:hover {
+    box-shadow: 0 4px 8px 0 $box-shadow-hover, 0 6px 20px 0 $box-shadow-hover;
+  }
 }
 
 .book--main--content--info--download--icon {
@@ -170,11 +170,11 @@
   flex: 25%;
   color: $color;
   text-decoration: none;
-}
 
-.book--related--container--link:hover {
-  color: $color;
-  text-decoration: none;
+  &:hover {
+    color: $color;
+    text-decoration: none;
+  }
 }
 
 .book--related--container--figure {
@@ -183,10 +183,10 @@
   background-color: $background-color;
   box-shadow: 0 4px 8px 0 $box-shadow, 0 6px 20px 0 $box-shadow;
   margin-bottom: 25px;
-}
 
-.book--related--container--figure:hover {
-  box-shadow: 0 4px 8px 0 $box-shadow-hover, 0 6px 20px 0 $box-shadow-hover;
+  &:hover {
+    box-shadow: 0 4px 8px 0 $box-shadow-hover, 0 6px 20px 0 $box-shadow-hover;
+  }
 }
 
 .book--related--container--figure--img {

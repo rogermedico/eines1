@@ -1,6 +1,6 @@
 import { LOCATIONS } from './constants';
 
-function extractPathname(){
+function extractPathName(){
   const path = window.location.pathname.split('/');
   const actualPage = path[path.length-1];
   return actualPage;
@@ -13,17 +13,17 @@ export function getHomeUrl(){
 }
 
 export function iAmInHome(){
-  if(LOCATIONS.home.includes(extractPathname())) return true;
+  if(LOCATIONS.home.includes(extractPathName())) return true;
   else return false;
 }
 
 export function iAmInCategory(){
-  if(LOCATIONS.category.includes(extractPathname())) return true;
+  if(LOCATIONS.category.includes(extractPathName())) return true;
   else return false; 
 }
 
 export function iAmInBook(){
-  if(LOCATIONS.book.includes(extractPathname())) return true;
+  if(LOCATIONS.book.includes(extractPathName())) return true;
   else return false;
 }
 

@@ -43,11 +43,11 @@
 .footer--content--left--social--link {
   color: $text-color-secondary;
   text-decoration: none;
-}
 
-.footer--content--left--social--link:hover {
-  color: $color-2;
-  text-decoration: none;
+  &:hover {
+    color: $color-2;
+    text-decoration: none;
+  }
 }
 
 .footer--right {
